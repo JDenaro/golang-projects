@@ -1,0 +1,8 @@
+services:
+  mysql:
+    image: mysql:latest  # Use the latest official MySQL image
+    ports:
+      - "3306:3306"  # Map host port 3306 to container port 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"  # Set the root password
+      MYSQL_DATABASE: "simplerest"  # Optional: Create a database on startup

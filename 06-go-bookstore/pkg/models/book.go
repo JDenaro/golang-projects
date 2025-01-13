@@ -3,14 +3,14 @@ package models
 import (
 	"go-bookstore/pkg/config"
 
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 var db *gorm.DB
 
 type Book struct {
 	gorm.Model
-	Name        string `gorm:""json:"name"`
+	Name        string `gorm:"" json:"name"`
 	Author      string `json:"author"`
 	Publication string `json:"publication"`
 }
@@ -22,7 +22,7 @@ func init() {
 }
 
 func (b *Book) CreateBook() *Book {
-	db.NewRecord(b)
+	// db.NewRecord(b)
 	db.Create(&b)
 	return b
 }

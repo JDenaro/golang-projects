@@ -1,7 +1,7 @@
 package config
 
 import (
-	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
@@ -10,7 +10,8 @@ var (
 )
 
 func Connect() {
-	d, err := gorm.Open("mysql", "root:root@12@/simplerest?charset=utf8&parseTime=True&loc=Local")
+	dsn := "root:root@tcp(127.0.0.1:3306)/simplerest?charset=utf8mb4&parseTime=True&loc=Local"
+	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
