@@ -24,5 +24,5 @@ go.work.sum
 # env file
 .env
 
-# macos DS_Store file
+# macOS DS_Store file
 .DS_Store
