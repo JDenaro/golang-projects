@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"mongo-golang/controllers"
 	"net/http"
 
@@ -18,9 +19,11 @@ func main() {
 }
 
 func getSession() *mgo.Session {
-	s, err := mgo.Dial("mongodb://localhost:27017")
+	fmt.Println("starting mongodb connection")
+	s, err := mgo.Dial("mongodb://myuser:mypassword@127.0.0.1:27017")
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("Connected to mongodb")
 	return s
 }

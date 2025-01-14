@@ -1,14 +1,9 @@
 services:
   mongodb:
-    image: mongo
+    image: mongo:4
     container_name: my-mongodb
     ports:
       - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: myuser
       MONGO_INITDB_ROOT_PASSWORD: mypassword
-
-volumes:
-  mongodb_data:
